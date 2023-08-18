@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { fetchFromAPI } from "./utils/FetchFromApi";
+import { useEffect } from "react";
+import { Routes } from 'react-router-dom';
+import { Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
+import ListPage from "./pages/ListPage";
+import DetailPage from "./pages/DetailPage";
 
 function App() {
+  useEffect(() => {
+    fetchFromAPI().then((data) => console.log(data));
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ListPage/>} />
+        <Route path="/detail" element={<DetailPage/>} />
+      </Routes>
+      </BrowserRouter>
+  )
 }
 
 export default App;
