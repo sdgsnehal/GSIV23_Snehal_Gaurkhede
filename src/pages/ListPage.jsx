@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Movies from "../component/Movies";
 import { fetchFromAPI } from "../utils/FetchFromApi";
+import SearchBar from "../component/SearchBar";
+import Navbar from "../component/Navbar";
 
 const ListPage = () => {
     const [movies,Setmovies] = useState();
@@ -14,6 +16,7 @@ const ListPage = () => {
 
   return (
     <div>
+       <Navbar/>
       <Movies movies={movies}/>
     </div>
   );
