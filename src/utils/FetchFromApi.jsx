@@ -1,15 +1,3 @@
-// const options = {
-//     method: 'GET',
-//     headers: {
-//       accept: 'application/json',
-//       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4Mjk5MGZiOTIwZjljMjc2YmQyMTYzNzVhMWYzNjI4MyIsInN1YiI6IjY0ZGY0YTY0YWFlYzcxMDNmN2UzNjhhYSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Kg1lGNPn6hxvyd3td7lyfVR0WUUPyGLPEAbZVW8vi7o'
-//     }
-//   };
-  
-//   fetch('https://api.themoviedb.org/3/authentication', options)
-//     .then(response => response.json())
-//     .then(response => console.log(response))
-//     .catch(err => console.error(err));
 
     import axios from "axios";
     const BASE_URL ='https://api.themoviedb.org/3/trending/movie/day?language=en-US'
