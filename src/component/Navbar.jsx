@@ -18,7 +18,7 @@ const Navbar = () => {
       }}
     >
       <SearchBar />
-      <IconButton SX={{ p: "10px" }}>
+      <IconButton sx={{ p: "10px" }}>
         <HomeIcon />
       </IconButton>
     </Stack>
