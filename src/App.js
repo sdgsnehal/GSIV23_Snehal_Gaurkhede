@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import "./App.css";
+
 import { fetchFromAPI } from "./utils/FetchFromApi";
 import { useEffect } from "react";
 import { Routes } from 'react-router-dom';
@@ -17,6 +17,7 @@ function App() {
     fetchFromAPI().then((data) => console.log(data));
   }, []);
   return (
+    
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<ListPage/>} />

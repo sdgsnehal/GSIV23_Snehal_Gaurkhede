@@ -25,7 +25,7 @@ const DetailPage = () => {
   }, [id]);
   if (!movieDetail) return "loading...";
   const { poster_path, title, overview, release_date, runtime } = movieDetail;
-  //implement the function to get cast and director name from the credits object
+
   let castNames = "";
   let directorNames = "";
 
@@ -44,30 +44,30 @@ const DetailPage = () => {
   return (
     <>
       <Navbar />
-      <Grid container spacing={50}>
-        <Grid item xs={12} md={4}>
-          <Box
+      <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 6 }} >
+        <Grid item xs={12} md={4} >
+          {/* <Box
             sx={{
               width: { md: "180px", xs: "100%" },
               height: "240px",
             }}
-          >
+          > */}
             <img
               src={ImageURl + poster_path}
               alt=""
               sx={{ objectFit: "cover", width: { md: "180px", xs: "100%" } }}
             />
-          </Box>
+          {/* </Box> */}
         </Grid>
-        <Grid item xs={12} md={8}>
-          <Box>
+        <Grid item xs={12} md={8}sx={{backgroundColor:"white"}} >
+          {/* <Box> */}
             <h1>{title}</h1>
             <p>{release_date}</p>
             <p>{castNames}</p>
             <p>{directorNames}</p>
             <p>{runtime} min</p>
             <p>{overview}</p>
-          </Box>
+          {/* </Box> */}
         </Grid>
       </Grid>
     </>

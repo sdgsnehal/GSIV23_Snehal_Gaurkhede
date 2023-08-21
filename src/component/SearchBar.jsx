@@ -1,8 +1,12 @@
 import { InputBase, Paper } from "@mui/material";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const SearchBar = () => {
+    const theme = useTheme();
+    const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
     const[searchTerm,setSearchTerm] = useState('')
     const navigate = useNavigate();
     const onhandleSubmit = (e) => {
@@ -16,7 +20,7 @@ const SearchBar = () => {
     <Paper
       component="form"
       onSubmit={onhandleSubmit}
-      sx={{ width: "600px", height: "40px", borderRadius: "8px", p: "5px" }}
+      sx={{ width: isSmallScreen ? "100%" : "600px", height: "40px", borderRadius: "8px", p: "5px" }}
       
     >
       <InputBase

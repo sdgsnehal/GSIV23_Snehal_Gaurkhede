@@ -25,7 +25,8 @@ const Navbar = (props) => {
         width: "100%",
       }}
     >
-      {usePathname() === "/" || "/search" ? <SearchBar /> : <MovieDetail />}
+      {usePathname() === "/"  ? <SearchBar /> : <MovieDetail />}
+    
       <Link to="/">
         <IconButton sx={{ p: "10px", alignSelf: "" }}>
           <HomeIcon />

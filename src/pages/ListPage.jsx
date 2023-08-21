@@ -3,22 +3,32 @@ import Movies from "../component/Movies";
 import { fetchFromAPI } from "../utils/FetchFromApi";
 import SearchBar from "../component/SearchBar";
 import Navbar from "../component/Navbar";
+import { Box } from "@mui/material";
 
 const ListPage = () => {
-  const shouldShow = true;
+  
   const [movies, Setmovies] = useState(null);
 
-  useEffect(() => {
-    fetchFromAPI().then((data) => {
-      Setmovies(data.results);
-      console.log(data.results);
-    });
-  }, []);
+    useEffect(() => {
+      fetchFromAPI().then((data) => {
+        Setmovies(data.results);
+        console.log(data.results);
+      });
+    }, []);
 
   return (
     <div>
       <Navbar />
-      <Movies movies={movies} />
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <Movies movies={movies} />
+      </Box>
     </div>
   );
 };

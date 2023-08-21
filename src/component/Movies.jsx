@@ -5,7 +5,12 @@ import MovieCard from "./MovieCard";
 const Movies = ({ movies }) => {
   if (!movies) return "Loading...";
   return (
-    <Stack direction={"row"} flexWrap="wrap" justifyContent="start" gap={2}>
+    <Stack
+      direction={{ md: "row", sm: "column" }}
+      flexWrap="wrap"
+      justifyContent="center"
+      gap={2}
+    >
       {movies.map((movie, index) => (
         <Box key={index}>
           <MovieCard movie={movie} />
