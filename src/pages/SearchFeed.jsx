@@ -1,19 +1,20 @@
 import React, { useEffect, useState } from "react";
 import Movies from "../component/Movies";
-import { fetchFromAPI } from "../utils/FetchFromApi";
-import SearchBar from "../component/SearchBar";
+import { fetchMovieDetail } from "../utils/FetchMovieDetail";
+
 import Navbar from "../component/Navbar";
+import { useParams } from "react-router";
 
 const ListPage = () => {
-  const shouldShow = true;
   const [movies, Setmovies] = useState(null);
+  const { searchTerm } = useParams();
 
   useEffect(() => {
-    fetchFromAPI().then((data) => {
+    fetchMovieDetail(`search/movie?query=${searchTerm}`).then((data) => {
       Setmovies(data.results);
       console.log(data.results);
     });
-  }, []);
+  }, [searchTerm]);
 
   return (
     <div>

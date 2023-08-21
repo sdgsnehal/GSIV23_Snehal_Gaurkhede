@@ -4,12 +4,14 @@ import { useParams } from "react-router";
 import { fetchMovieDetail } from "../utils/FetchMovieDetail";
 import { Box, Grid, Stack } from "@mui/material";
 import { Image } from "@mui/icons-material";
+import Navbar from "../component/Navbar";
 
 const DetailPage = () => {
   const [movieDetail, setMovieDetail] = useState(null);
   const [credits, setCredits] = useState(null);
   const { id } = useParams();
   const ImageURl = "https://image.tmdb.org/t/p/w500";
+  const shouldShow = false;
 
   useEffect(() => {
     fetchMovieDetail(`/movie/${id}?language=en-US`).then((movie) => {
@@ -40,32 +42,35 @@ const DetailPage = () => {
   }
 
   return (
-    <Grid container spacing={50}>
-      <Grid item xs={12} md={4}>
-        <Box
-          sx={{
-            width: { md: "180px", xs: "100%" },
-            height: "240px",
-          }}
-        >
-          <img
-            src={ImageURl + poster_path}
-            alt=""
-            sx={{ objectFit: "cover", width: { md: "180px", xs: "100%" } }}
-          />
-        </Box>
+    <>
+      <Navbar />
+      <Grid container spacing={50}>
+        <Grid item xs={12} md={4}>
+          <Box
+            sx={{
+              width: { md: "180px", xs: "100%" },
+              height: "240px",
+            }}
+          >
+            <img
+              src={ImageURl + poster_path}
+              alt=""
+              sx={{ objectFit: "cover", width: { md: "180px", xs: "100%" } }}
+            />
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={8}>
+          <Box>
+            <h1>{title}</h1>
+            <p>{release_date}</p>
+            <p>{castNames}</p>
+            <p>{directorNames}</p>
+            <p>{runtime} min</p>
+            <p>{overview}</p>
+          </Box>
+        </Grid>
       </Grid>
-      <Grid item xs={12} md={8}>
-        <Box>
-          <h1>{title}</h1>
-          <p>{release_date}</p>
-          <p>{castNames}</p>
-          <p>{directorNames}</p>
-          <p>{runtime} min</p>
-          <p>{overview}</p>
-        </Box>
-      </Grid>
-    </Grid>
+    </>
   );
 };
 

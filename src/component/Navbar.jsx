@@ -1,9 +1,17 @@
 import { IconButton, Stack } from "@mui/material";
 import React from "react";
 import SearchBar from "./SearchBar";
+import MovieDetail from "./MovieDetail";
+import { Link, useLocation } from "react-router-dom";
+
 import HomeIcon from "@mui/icons-material/Home";
 
-const Navbar = () => {
+const Navbar = (props) => {
+  const usePathname = () => {
+    const location = useLocation();
+    return location.pathname;
+  };
+
   return (
     <Stack
       direction="row"
@@ -17,10 +25,12 @@ const Navbar = () => {
         width: "100%",
       }}
     >
-      <SearchBar />
-      <IconButton sx={{ p: "10px" }}>
-        <HomeIcon />
-      </IconButton>
+      {usePathname() === "/" || "/search" ? <SearchBar /> : <MovieDetail />}
+      <Link to="/">
+        <IconButton sx={{ p: "10px", alignSelf: "" }}>
+          <HomeIcon />
+        </IconButton>
+      </Link>
     </Stack>
   );
 };

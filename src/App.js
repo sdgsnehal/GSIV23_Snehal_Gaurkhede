@@ -7,6 +7,10 @@ import { Route } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom';
 import ListPage from "./pages/ListPage";
 import DetailPage from "./pages/DetailPage";
+import SearchFeed from "./pages/SearchFeed";
+
+
+
 
 function App() {
   useEffect(() => {
@@ -17,6 +21,7 @@ function App() {
       <Routes>
         <Route path="/" element={<ListPage/>} />
         <Route path="/movie/:id" element={<DetailPage/>} />
+        <Route path="/search/:searchTerm" element={<SearchFeed/>} />"
       </Routes>
       </BrowserRouter>
   )
